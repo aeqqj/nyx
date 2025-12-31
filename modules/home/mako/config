@@ -1,0 +1,10 @@
+background-color=#080808
+text-color=#e0def4
+border-color=#524f67
+progress-color=over #31748f
+default-timeout=3000
+
+on-notify=exec mpv ~/music/notify.mp3
+
+[urgency=high]
+border-color=#eb6f92

@@ -1,0 +1,223 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+
+        // keyboard delay
+        repeat-delay 300
+        repeat-rate 30
+
+        // enable numlock on startup
+        numlock
+    }
+
+    touchpad {
+        tap
+        dwt
+        dwtp
+        drag true
+        natural-scroll
+        accel-speed 0.6
+        accel-profile "flat"
+    }
+
+    mouse {
+        accel-speed 0.2
+        accel-profile "flat"
+        scroll-method "no-scroll"
+    }
+
+    // thinkpad nipol
+    trackpoint {
+        accel-speed 0.6
+        accel-profile "flat"
+    }
+
+    // Focus windows and outputs automatically when moving the mouse into them.
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+// monitor
+output "eDP-1" {
+    mode "1920x1200@60"
+    scale 1.0
+    transform "normal"
+}
+
+layout {
+    // border gaps
+    gaps 8
+
+    // transparent workspace
+    background-color "transparent"
+
+    // window size presets
+    preset-column-widths {
+        proportion 0.3
+        proportion 0.5
+        proportion 0.7
+        proportion 1.0
+    }
+
+    preset-window-heights { 
+        proportion 0.3
+        proportion 0.5
+        proportion 0.7
+        proportion 1.0
+    }
+
+    // the windows themselves will decide their initial width
+    default-column-width { }
+
+    // disables
+    focus-ring {
+        off
+    }
+
+    border {
+        off
+    }
+}
+
+// spawn processes at startup
+spawn-sh-at-startup "swaybg -i ~/pictures/wallpapers/whale.png -m fill"
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+// remove client side decorations
+prefer-no-csd
+
+screenshot-path "~/pictures/screenshots/%Y-%m-%d_%H-%M-%S.png"
+
+animations {
+    slowdown 0.4
+}
+
+window-rule {
+    match app-id=r#"^PacketTracer$"#
+    match app-id=r#"^com.adamcake.Bolt$"#
+    open-floating true
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
+binds {
+    // hotkey overlay
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // program hotkeys
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+D hotkey-overlay-title="Run an Application: tofi" { spawn "tofi-drun" "--drun-launch=true"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+    // volume keys
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // brightness keys
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    // overview
+    Mod+O repeat=false { toggle-overview; }
+    Mod+A repeat=false { toggle-overview; }
+
+    // close window
+    Mod+Q repeat=false { close-window; }
+
+    // column binds
+    Mod+H     { focus-column-left; }
+    Mod+Shift+Tab   { focus-column-left; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
+    Mod+L     { focus-column-right; }
+    Mod+Tab   { focus-column-right; }
+
+    // column shifting
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-column-to-workspace-down; }
+    Mod+Shift+K     { move-column-to-workspace-up; }
+    Mod+Shift+L     { move-column-right; }
+
+    // workspace shifting
+    Mod+U         { move-workspace-down; }
+    Mod+I         { move-workspace-up; }
+
+    // workspace scrolling
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+Shift+WheelScrollUp        { focus-column-right; }
+    Mod+Shift+WheelScrollDown      { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // workspace binds
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+
+    // change window size based on presets
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    // center binds
+    Mod+C { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // floating window binds
+    Mod+W { toggle-window-floating; }
+    Mod+Space { switch-focus-between-floating-and-tiling; }
+
+    // sceenshots
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // alow niri to process keyboard inputs while inhibitors are active
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // quit niri
+    Mod+Shift+M { quit; }
+
+    // power off
+    Mod+Shift+P { power-off-monitors; }
+}
+
