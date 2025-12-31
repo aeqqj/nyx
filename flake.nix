@@ -1,4 +1,4 @@
-{ description = "S13L custom NixOS + Home Manager config";
+{ description = "nyx";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
