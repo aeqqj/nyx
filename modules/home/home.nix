@@ -29,7 +29,8 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita-dark";
-
+    cursorTheme.name = "Apple-cursor";
+    
     colorScheme = "dark";
   };
 
