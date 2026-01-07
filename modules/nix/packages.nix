@@ -4,6 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    adb.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
     niri.enable = true;

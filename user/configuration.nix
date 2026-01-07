@@ -19,10 +19,12 @@
     isNormalUser = true;
     description = "Main User";
     extraGroups = [
+      "adbusers"
       "wheel"
       "networkmanager"
       "docker"
       "seat"
+      "kvm"
     ];
     shell = pkgs.bash;
     

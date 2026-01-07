@@ -4,6 +4,14 @@
   home = {
     username = globals.UserName;
     homeDirectory = "/home/${globals.UserName}";
+
+    pointerCursor = {
+      enable = true;
+      gtk.enable = true;
+      package = pkgs.apple-cursor;
+      name = "macOS";
+      size = 32;
+    };
   };
 
   imports = [
@@ -29,7 +37,6 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita-dark";
-    cursorTheme.name = "Apple-cursor";
     
     colorScheme = "dark";
   };
@@ -37,14 +44,6 @@
   qt = {
     enable = true;
     style.name = "adwaita-dark";
-  };
-
-  home.pointerCursor = {
-    enable = true;
-    gtk.enable = true;
-    package = pkgs.apple-cursor;
-    name = "apple-cursor";
-    size = 12;
   };
 
   # git config
