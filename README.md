@@ -12,6 +12,7 @@ Modular dotfiles using homemanager + flakes for declarativity.
 ## Structure
 ```
 nyx
+.
 ├── flake.lock
 ├── flake.nix
 ├── modules
@@ -20,6 +21,10 @@ nyx
 │   │   │   ├── alacritty.nix
 │   │   │   ├── alacritty.toml
 │   │   │   └── lackluster.toml
+│   │   ├── emacs
+│   │   │   ├── early-init.el
+│   │   │   ├── emacs.nix
+│   │   │   └── init.el
 │   │   ├── git.nix
 │   │   ├── home.nix
 │   │   ├── mako
@@ -65,9 +70,12 @@ nyx
 │       ├── pipewire.nix
 │       ├── system.nix
 │       └── virtualisation.nix
+├── README.md
 └── user
     ├── configuration.nix
     └── hardware-configuration.nix
+
+17 directories, 45 files
 ```
 
 ## Installation

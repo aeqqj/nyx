@@ -16,6 +16,7 @@
 
   imports = [
     ./alacritty/alacritty.nix
+    ./emacs/emacs.nix
     ./git.nix
     ./mako/mako.nix
     ./mime-apps.nix
