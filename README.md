@@ -12,7 +12,6 @@ Modular dotfiles using homemanager + flakes for declarativity.
 ## Structure
 ```
 nyx
-.
 ├── flake.lock
 ├── flake.nix
 ├── modules
