@@ -15,6 +15,7 @@
         mesa
       ];
     };
+    bluetooth.enable = true;
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];  

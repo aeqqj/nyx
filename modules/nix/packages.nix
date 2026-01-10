@@ -13,7 +13,6 @@
     steam.enable = true;
     xwayland.enable = true;
     virt-manager.enable = true;
-    zsh.enable = true;
   };
 
   services = {
@@ -33,6 +32,7 @@
     adw-gtk3
     alacritty
     appimage-run
+    bluetui
     brightnessctl
     btop
     cups
@@ -41,6 +41,7 @@
     discord
     docker
     docker-compose
+    emacs-pgtk
     ffmpeg
     fzf
     gcc
@@ -50,7 +51,6 @@
     git
     glib
     gnumake
-    godot
     go
     grub2
     imv
@@ -90,8 +90,6 @@
     wl-clipboard
     xwayland
     xwayland-satellite
-    zoxide
-    zsh
   ];
 }
 
