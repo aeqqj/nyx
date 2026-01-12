@@ -34,15 +34,18 @@ nyx
 │   │   │   ├── config.kdl
 │   │   │   └── niri.nix
 │   │   ├── nvim
-│   │   │   ├── config
-│   │   │   │   ├── core
-│   │   │   │   │   ├── keymaps.lua
-│   │   │   │   │   ├── lsp.lua
-│   │   │   │   │   └── options.lua
-│   │   │   │   └── plugins
-│   │   │   │       ├── lackluster.lua
-│   │   │   │       └── nvim-ts-autotag.lua
-│   │   │   └── nvim.nix
+│   │   │   ├── core
+│   │   │   │   ├── default.nix
+│   │   │   │   ├── keymaps.nix
+│   │   │   │   ├── lsp.nix
+│   │   │   │   └── options.nix
+│   │   │   ├── nvim.nix
+│   │   │   └── plugins
+│   │   │       ├── default.nix
+│   │   │       ├── mini.nix
+│   │   │       ├── oil.nix
+│   │   │       ├── treesitter.nix
+│   │   │       └── ts-autotag.nix
 │   │   ├── starship
 │   │   │   ├── starship.nix
 │   │   │   └── starship.toml
@@ -73,8 +76,6 @@ nyx
 └── user
     ├── configuration.nix
     └── hardware-configuration.nix
-
-17 directories, 45 files
 ```
 
 ## Installation

@@ -1,8 +1,10 @@
-{ description = "nyx";
+{ 
+  description = "nyx";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nixvim.url = "github:nix-community/nixvim";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,7 +13,7 @@
   };
 
   outputs =
-    {
+    inputs@ {
       self,
       nixpkgs,
       nix-flatpak,
@@ -32,7 +34,7 @@
     {
       nixosConfigurations.${globals.HostName} = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit globals; };
+        specialArgs = { inherit globals inputs; };
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
           ./user/configuration.nix
@@ -41,7 +43,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit globals; };
+            home-manager.extraSpecialArgs = { inherit globals inputs; };
             home-manager.users.${globals.UserName} = import ./modules/home/home.nix;
           }
         ];
