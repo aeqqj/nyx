@@ -10,6 +10,7 @@
       install_dir.__raw = "vim.fs.joinpath(vim.fn.stdpath('data'), 'site')";
       
       highlight.enable = true;
+      indenting.enable = true;
 
       grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         bash

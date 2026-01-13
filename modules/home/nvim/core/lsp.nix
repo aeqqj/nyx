@@ -1,15 +1,21 @@
 {
   programs.nixvim.plugins = {
-    lsp-format = {
-      enable = true;
-      lspServersToEnable = "all";
-    };
-
     lsp = {
       enable = true;
       servers = {
         bashls.enable = true;
-        clangd.enable = true;
+
+        clangd = {
+	  enable = true;
+	  cmd = [
+	    "clangd"
+	    "--background-index"
+	    "--cross-file-rename"
+	    "--fallback-style=webkit"
+	    "--log=verbose"
+	  ];
+	};
+
         cssls.enable = true;
         docker_language_server.enable = true;
         html.enable = true;

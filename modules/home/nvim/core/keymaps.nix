@@ -13,6 +13,12 @@
     }
 
     {
+      action = ":Pick grep<CR>";
+      key = "<leader>fg";
+      mode = "n";
+    }
+
+    {
       action = ":Pick help<CR>";
       key = "<leader>h";
       mode = "n";
@@ -25,8 +31,8 @@
     }
 
     {
-      action.__raw = "vim.lsp.buf.format";
-      key = "<leader>fg";
+      action = ":lua vim.lsp.buf.format()<CR>";
+      key = "<leader>lf";
       mode = "n";
     }
 

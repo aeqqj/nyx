@@ -1,6 +1,6 @@
 {
   programs.nixvim = {
-    options = {
+    opts = {
       fileencoding = "utf-8";
 
       termguicolors = true;
