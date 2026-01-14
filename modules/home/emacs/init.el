@@ -230,13 +230,15 @@
   :hook ((org-mode . org-superstar-mode)
          (org-mode . org-indent-mode)
          (org-mode . org-autolist-mode)
-         (org-mode . visual-line-mode))
+         (org-mode . visual-line-mode)
+         (org-mode . olivetti-mode))
   :config
   (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
   (setq org-agenda-files '("~/org"))
   (setq org-return-follows-link t)
   (setq org-hide-emphasis-markers t)
+  (setq org-tags-column -70)
 
   (custom-theme-set-faces
    'user
@@ -279,6 +281,9 @@
          ("C-c n i" . org-roam-node-insert))
   :config
   (org-roam-db-autosync-mode))
+
+(use-package olivetti
+  :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

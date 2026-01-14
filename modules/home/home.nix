@@ -47,7 +47,6 @@
     style.name = "adwaita-dark";
   };
 
-  # git config
   programs = {
     alacritty.enable = true;
     go.enable = true;

@@ -28,6 +28,7 @@
 
   security.polkit.enable = true;
 
+  # packages here are redundant(from home.nix) to show the overall collection of packages in the system
   environment.systemPackages = with pkgs; [
     adw-gtk3
     alacritty
@@ -62,6 +63,7 @@
     neovim
     niri
     nix-ld
+    nodejs
     obs-studio
     papirus-icon-theme
     pavucontrol

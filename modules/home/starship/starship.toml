@@ -1,14 +1,11 @@
-#
-# prezto - mimic the default prezto prompt (sorin)
-#
-
+# prezto.toml
 add_newline = false
 
 # A minimal left prompt
 format = """$python$directory$character"""
 
 # move the rest of the prompt to the right
-right_format = """$status$git_branch$git_status"""
+right_format = """$git_branch$git_status$status"""
 
 [character]
 success_symbol = "[❯](green)"
@@ -20,8 +17,7 @@ format = '[$branch]($style) '
 style = 'bold green'
 
 [python]
-format = '[(\($virtualenv\) )]($style)'
-style = 'white'
+format = '\($virtualenv\) '
 
 [git_status]
 format = '$all_status$ahead_behind '

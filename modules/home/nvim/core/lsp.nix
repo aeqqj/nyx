@@ -6,15 +6,15 @@
         bashls.enable = true;
 
         clangd = {
-	  enable = true;
-	  cmd = [
-	    "clangd"
-	    "--background-index"
-	    "--cross-file-rename"
-	    "--fallback-style=webkit"
-	    "--log=verbose"
-	  ];
-	};
+          enable = true;
+          cmd = [
+            "clangd"
+            "--background-index"
+            "--cross-file-rename"
+            "--fallback-style=webkit"
+            "--log=verbose"
+          ];
+	    };
 
         cssls.enable = true;
         docker_language_server.enable = true;

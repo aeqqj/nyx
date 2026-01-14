@@ -1,7 +1,9 @@
 {
   imports = [
+    ./emmet-ls.nix
     ./mini.nix
     ./oil.nix
+    ./tmux.nix
     ./treesitter.nix
     ./ts-autotag.nix
   ];
