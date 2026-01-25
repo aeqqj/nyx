@@ -1,15 +1,5 @@
 {
-  programs.nixvim.plugins.mini = {
+  programs.nixvim.plugins.fzf-lua = {
     enable = true;
-    autoLoad = true;
-
-    modules = {
-      pick = {
-        options = {
-          content_from_bottom = false;
-          use_cache = false;
-        };
-      };
-    };
   };
 }

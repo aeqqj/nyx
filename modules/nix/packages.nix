@@ -1,10 +1,19 @@
 { pkgs, ... }:
 
+with pkgs;
+let
+  rstudio = rstudioWrapper.override {
+    packages = with rPackages; [ 
+      ggplot2 
+      dplyr 
+      xts
+    ]; 
+  };
+in
 {
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    adb.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
     niri.enable = true;
@@ -20,10 +29,7 @@
     displayManager.ly.enable = true;
     flatpak.enable = true;
     openssh.enable = true;
-    printing = {
-      enable = true;
-      webInterface = true;
-    };
+    syncthing.enable = true;
   };
 
   security.polkit.enable = true;
@@ -61,19 +67,21 @@
     mpv
     nautilus
     neovim
+    nodejs
     niri
     nix-ld
-    nodejs
     obs-studio
     papirus-icon-theme
     pavucontrol
     playerctl
     pnpm
     polkit
+    prismlauncher
     p7zip-rar
     qbittorrent
     qemu
     ripgrep
+    rstudio
     spotify
     starship
     steam

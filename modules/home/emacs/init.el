@@ -121,6 +121,7 @@
   (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
 
 (use-package consult
+  :ensure t
   ;; Replace bindings. Lazily loaded by `use-package'.
   :bind (;; C-c bindings in `mode-specific-map'
          ("C-c M-x" . consult-mode-command)
@@ -270,7 +271,10 @@
   :ensure t)
 
 (use-package org-journal
-  :ensure t)
+  :ensure t
+  :custom
+  (org-journal-dir "~/org/journal")
+  :bind ("C-c j e" . org-journal-new-entry))
 
 (use-package org-roam
   :ensure t
