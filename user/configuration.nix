@@ -1,32 +1,37 @@
-{ config, pkgs, globals, ... }:
+{
+    config,
+    pkgs,
+    globals,
+    ...
+}:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  users.users.${globals.UserName} = {
-    isNormalUser = true;
-    description = "Main User";
-    extraGroups = [
-      "adbusers"
-      "wheel"
-      "networkmanager"
-      "docker"
-      "seat"
-      "kvm"
+    imports = [
+        ./hardware-configuration.nix
     ];
-    shell = pkgs.bash;
-    
-    openssh.authorizedKeys.keys = [
-      "${globals.SshKey}"
-    ];
-  };
 
-  system.stateVersion = "25.11";
+    nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+    ];
+
+    users.users.${globals.UserName} = {
+        isNormalUser = true;
+        description = "Main User";
+        extraGroups = [
+            "adbusers"
+            "wheel"
+            "networkmanager"
+            "docker"
+            "seat"
+            "kvm"
+        ];
+        shell = pkgs.bash;
+
+        openssh.authorizedKeys.keys = [
+            "${globals.SshKey}"
+        ];
+    };
+
+    system.stateVersion = "25.11";
 }

@@ -1,6 +1,6 @@
 {
-  programs.nixvim.plugins.tmux-navigator = {
-    enable = true;
-    autoLoad = true;
-  };
+    programs.nixvim.plugins.tmux-navigator = {
+        enable = true;
+        autoLoad = true;
+    };
 }

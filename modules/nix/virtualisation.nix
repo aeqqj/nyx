@@ -1,10 +1,9 @@
 { pkgs, ... }:
 
 {
-  virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
-  };
+    virtualisation = {
+        docker.enable = true;
+        libvirtd.enable = true;
+        spiceUSBRedirection.enable = true;
+    };
 }
-

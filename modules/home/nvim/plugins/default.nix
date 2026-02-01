@@ -1,24 +1,26 @@
 {
-  imports = [
-    ./emmet-ls.nix
-    ./mini.nix
-    ./oil.nix
-    ./tmux.nix
-    ./treesitter.nix
-    ./ts-autotag.nix
-  ];
+    imports = [
+        ./conform.nix
+        ./emmet-ls.nix
+        ./flutter-tools.nix
+        ./mini.nix
+        ./oil.nix
+        ./tmux.nix
+        ./treesitter.nix
+        ./ts-autotag.nix
+    ];
 
-  programs.nixvim.plugins = {
-    lz-n.enable = true;
+    programs.nixvim.plugins = {
+        lz-n.enable = true;
 
-    web-devicons.enable = true;
+        web-devicons.enable = true;
 
-    gitsigns = {
-      enable = true;
-      settings.signs = {
-        add.text = "+";
-        change.text = "~";
-      };
+        gitsigns = {
+            enable = true;
+            settings.signs = {
+                add.text = "+";
+                change.text = "~";
+            };
+        };
     };
-  };
 }

@@ -14,7 +14,7 @@
             "--fallback-style=webkit"
             "--log=verbose"
           ];
-	    };
+        };
 
         cssls.enable = true;
         docker_language_server.enable = true;
@@ -23,11 +23,16 @@
         jsonls.enable = true;
         lua_ls.enable = true;
         marksman.enable = true;
-        nixd.enable = true;
+        nixd = {
+          enable = true;
+        };
         roslyn.enable = true;
         tailwindcss.enable = true;
         ts_ls.enable = true;
-        vtsls.enable = true;
+        vtsls = {
+          enable = true;
+          autostart = true;
+        };
       };
     };
   };

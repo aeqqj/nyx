@@ -1,22 +1,22 @@
 { pkgs, ... }:
 
 {
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        mesa
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-tools
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        mesa
-      ];
+    hardware = {
+        graphics = {
+            enable = true;
+            enable32Bit = true;
+            extraPackages = with pkgs; [
+                mesa
+                vulkan-loader
+                vulkan-validation-layers
+                vulkan-tools
+            ];
+            extraPackages32 = with pkgs.pkgsi686Linux; [
+                mesa
+            ];
+        };
+        bluetooth.enable = true;
     };
-    bluetooth.enable = true;
-  };
 
-  services.xserver.videoDrivers = [ "amdgpu" ];  
+    services.xserver.videoDrivers = [ "amdgpu" ];
 }

@@ -25,7 +25,7 @@
     }
 
     {
-      action = ":lua vim.lsp.buf.format()<CR>";
+      action = ":lua require('conform').format()<CR>";
       key = "<leader>lf";
       mode = "n";
     }

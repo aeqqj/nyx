@@ -1,8 +1,0 @@
-{
-  environment.variables = {
-    ELECTRON_ENABLE_WAYLAND = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    OZONE_PLATFORM = "wayland";
-    GDK_BACKEND = "wayland";
-  };
-}

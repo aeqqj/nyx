@@ -1,6 +1,6 @@
 {
-  programs.nixvim.plugins.oil = {
-    enable = true;
-    autoLoad = true;
-  };
+    programs.nixvim.plugins.oil = {
+        enable = true;
+        autoLoad = true;
+    };
 }

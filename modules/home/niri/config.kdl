@@ -80,6 +80,9 @@ layout {
     }
 }
 
+// scratchpad
+workspace "scratch"
+
 // spawn processes at startup
 spawn-sh-at-startup "swaybg -i ~/pictures/wallpapers/whale.png -m fill"
 spawn-at-startup "waybar"
@@ -99,6 +102,12 @@ animations {
 }
 
 window-rule {
+    match app-id=r#"^Spotifyo$"#
+    open-on-workspace "scratch"
+    open-floating true
+}
+
+window-rule {
     match app-id=r#"^PacketTracer$"#
     match app-id=r#"^com.adamcake.Bolt$"#
     open-floating true
@@ -110,13 +119,15 @@ layer-rule {
 }
 
 binds {
+    // scratchpad
+    Mod+Ctrl+Q { spawn-sh "nscratch -id Spotify"; }
+
     // hotkey overlay
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // program hotkeys
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: tofi" { spawn "tofi-drun" "--drun-launch=true"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // volume keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
@@ -208,6 +219,7 @@ binds {
 
     // sceenshots
     Print { screenshot; }
+    Mod+Shift+S { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
@@ -217,7 +229,7 @@ binds {
     // quit niri
     Mod+Shift+M { quit; }
 
-    // power off
-    Mod+Shift+P { power-off-monitors; }
+    // sleep
+    Mod+Shift+P { spawn-sh "systemctl suspend && hyprlock"; }
 }
 
