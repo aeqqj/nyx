@@ -2,14 +2,27 @@
     inputs,
     pkgs,
     globals,
-    system,
     ...
 }:
 
-let
-    inherit (inputs.niri-scratchpad.packages.${system}) niri-scratchpad;
-in
 {
+    imports = [
+        inputs.niri.homeModules.niri
+        ./alacritty/alacritty.nix
+        ./emacs/emacs.nix
+        ./git.nix
+        ./hyprlock/hyprlock.nix
+        ./mako/mako.nix
+        ./mime-apps.nix
+        ./niri/niri.nix
+        ./nvim/nvim.nix
+        ./starship/starship.nix
+        ./tmux/tmux.nix
+        ./tofi/tofi.nix
+        ./user-dirs.nix
+        ./waybar/waybar.nix
+    ];
+
     home = {
         username = globals.UserName;
         homeDirectory = "/home/${globals.UserName}";
@@ -28,35 +41,19 @@ in
             GDK_BACKEND = "wayland";
             OZONE_PLATFORM = "wayland";
             QT_QPA_PLATFORM = "wayland";
-            QT_STYLE_OVERRIDE = "adwaita-dark";
-            QT_FORCE_DARK_MODE = "1";
             XDG_SESSION_TYPE = "wayland";
         };
 
-        packages = [
-            niri-scratchpad
+        packages = with pkgs; [
+            flat-remix-icon-theme
         ];
-    };
 
-    imports = [
-        ./alacritty/alacritty.nix
-        ./emacs/emacs.nix
-        ./git.nix
-        ./hyprlock/hyprlock.nix
-        ./mako/mako.nix
-        ./mime-apps.nix
-        ./niri/niri.nix
-        ./nvim/nvim.nix
-        ./starship/starship.nix
-        ./tmux/tmux.nix
-        ./tofi/tofi.nix
-        ./user-dirs.nix
-        ./waybar/waybar.nix
-    ];
+    };
 
     dconf.settings = {
         "org/gnome/desktop/interface" = {
             color-scheme = "prefer-dark";
+            icon-theme = "Flat-Remix";
         };
     };
 
@@ -70,12 +67,15 @@ in
     qt = {
         enable = true;
         platformTheme.name = "gtk";
-        style.name = "adwaita-dark";
+        style.name = "Adwaita-dark";
     };
 
     programs = {
         alacritty.enable = true;
-        go.enable = true;
+        niri = {
+            enable = true;
+            package = pkgs.niri-unstable;
+        };
     };
 
     services = {

@@ -11,6 +11,7 @@ let
             rsconnect
             tinytex
             tidyverse
+            tidyr
             xts
         ];
     };
@@ -26,7 +27,6 @@ in
         dconf.enable = true;
         gamemode.enable = true;
         niri.enable = true;
-        nix-ld.enable = true;
         starship.enable = true;
         steam.enable = true;
         xwayland.enable = true;
@@ -79,12 +79,10 @@ in
         ly
         mako
         mpv
-        nautilus
         neovim
         nodejs
-        niri
+        nirius
         obs-studio
-        papirus-icon-theme
         pavucontrol
         playerctl
         pnpm
@@ -102,6 +100,7 @@ in
         steam-run
         swaybg
         tmux
+        tofi
         tree
         unrar
         unzip

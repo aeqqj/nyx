@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-
 {
-    xdg.configFile."niri/config.kdl".source = ./config.kdl;
+    imports = [
+        ./settings.nix
+        ./keybinds.nix
+        ./rules.nix
+    ];
 }

@@ -4,11 +4,10 @@
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
         nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+        niri.url = "github:sodiboo/niri-flake";
+
         nixvim.url = "github:nix-community/nixvim";
-        niri-scratchpad = {
-            url = "github:gvolpe/niri-scratchpad";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -40,10 +39,11 @@
                 specialArgs = { inherit system globals inputs; };
                 modules = [
                     nix-flatpak.nixosModules.nix-flatpak
+                    home-manager.nixosModules.home-manager
                     ./user/configuration.nix
                     ./modules/nix/nix.nix
-                    home-manager.nixosModules.home-manager
                     {
+                        nixpkgs.overlays = [ inputs.niri.overlays.niri ];
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.extraSpecialArgs = { inherit system globals inputs; };

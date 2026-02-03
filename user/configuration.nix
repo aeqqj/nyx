@@ -17,7 +17,7 @@
 
     users.users.${globals.UserName} = {
         isNormalUser = true;
-        description = "Main User";
+        description = "main";
         extraGroups = [
             "adbusers"
             "wheel"
