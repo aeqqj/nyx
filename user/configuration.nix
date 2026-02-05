@@ -1,5 +1,4 @@
 {
-    config,
     pkgs,
     globals,
     ...
@@ -26,7 +25,6 @@
             "seat"
             "kvm"
         ];
-        shell = pkgs.bash;
 
         openssh.authorizedKeys.keys = [
             "${globals.SshKey}"

@@ -9,14 +9,13 @@
     imports = [
         inputs.niri.homeModules.niri
         ./alacritty/alacritty.nix
+        ./bash/bash.nix
         ./emacs/emacs.nix
         ./git.nix
-        ./hyprlock/hyprlock.nix
         ./mako/mako.nix
         ./mime-apps.nix
         ./niri/niri.nix
         ./nvim/nvim.nix
-        ./starship/starship.nix
         ./tmux/tmux.nix
         ./tofi/tofi.nix
         ./user-dirs.nix
@@ -72,10 +71,12 @@
 
     programs = {
         alacritty.enable = true;
+        bash.enable = true;
         niri = {
             enable = true;
             package = pkgs.niri-unstable;
         };
+        starship.enable = true;
     };
 
     services = {
