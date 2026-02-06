@@ -16,6 +16,7 @@
         ./mime-apps.nix
         ./niri/niri.nix
         ./nvim/nvim.nix
+        ./starship/starship.nix
         ./tmux/tmux.nix
         ./tofi/tofi.nix
         ./user-dirs.nix

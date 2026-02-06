@@ -7,7 +7,7 @@
             cd = "z";
         };
 
-        bashrcExtra = ''
+        initExtra = ''
             eval "$(zoxide init bash)"
         '';
     };
