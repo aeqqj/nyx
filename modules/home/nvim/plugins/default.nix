@@ -1,7 +1,7 @@
 {
     imports = [
+        ./blink.nix
         ./conform.nix
-        ./emmet-ls.nix
         ./flutter-tools.nix
         ./mini.nix
         ./oil.nix

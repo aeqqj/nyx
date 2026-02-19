@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 with pkgs;
 let
@@ -33,17 +33,24 @@ in
         bash.enable = true;
     };
     services = {
-        displayManager.enable = true;
-        displayManager.ly.enable = true;
+        desktopManager.plasma6.enable = true;
+        displayManager = {
+            enable = true;
+            sddm = {
+                enable = true;
+                wayland.enable = true;
+            };
+        };
+        # displayManager = {
+        #     enable = true;
+        #     ly.enable = true;
+        # };
         flatpak.enable = true;
         openssh.enable = true;
         syncthing.enable = true;
     };
 
-    security = {
-        pam.services.hyprlock = { };
-        polkit.enable = true;
-    };
+    security.polkit.enable = true;
 
     environment = {
         pathsToLink = [ "/share/bash-completion" ];
@@ -75,9 +82,9 @@ in
             gnumake
             grub2
             hyprlock
+            inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
             imv
             lazydocker
-            ly
             mako
             mpv
             neovim
@@ -89,10 +96,10 @@ in
             pnpm
             polkit
             prismlauncher
+            python3
             p7zip-rar
             qbittorrent
             qemu
-            qutebrowser
             ripgrep
             rstudio
             spotify

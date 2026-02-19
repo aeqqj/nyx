@@ -9,12 +9,14 @@
                     "*" = [ "codespell" ];
                     "_" = [ "trim_whitespace" ];
 
+                    html = [ "prettier" ];
                     javascript = [
                         "prettier"
                     ];
                     json = [ "jq" ];
                     lua = [ "stylua" ];
                     nix = [ "nixfmt" ];
+                    python = [ "ruff" ];
                     sh = [
                         "shellcheck"
                         "shfmt"
@@ -41,6 +43,10 @@
                     nixfmt = {
                         command = lib.getExe pkgs.nixfmt;
                         append_args = [ "--indent=4" ];
+                    };
+
+                    ruff = {
+                        command = lib.getExe pkgs.ruff;
                     };
 
                     shellcheck = {

@@ -25,21 +25,21 @@
             };
 
             git_branch = {
-                format = "[$branch]($style)";
+                format = "[$branch]($style) ";
                 style = "bold #7a7a7a";
             };
 
             git_status = {
-                format = "$ahead_behind $all_status ";
-                ahead = "[⇡](bold green)";
-                behind = "[⇣](bold red)";
-                staged = "[+](green)";
-                deleted = "[x](red)";
-                renamed = "[»](purple)";
-                stashed = "[✭](cyan)";
-                untracked = "[?](white)";
+                format = "$ahead_behind$all_status";
+                ahead = "[⇡](bold green) ";
+                behind = "[⇣](bold red) ";
+                staged = "[+](green) ";
+                deleted = "[x](red) ";
+                renamed = "[»](purple) ";
+                stashed = "[✭](cyan) ";
+                untracked = "[?](white) ";
                 modified = "[!](blue) ";
-                conflicted = "[═](yellow)";
+                conflicted = "[═](yellow) ";
                 up_to_date = "";
             };
 

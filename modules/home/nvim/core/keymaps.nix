@@ -7,13 +7,13 @@
         }
 
         {
-            action = ":FzfLua files<CR>";
+            action = ":Pick files<CR>";
             key = "<leader>ff";
             mode = "n";
         }
 
         {
-            action = ":FzfLua grep<CR>";
+            action = ":Pick grep<CR>";
             key = "<leader>fg";
             mode = "n";
         }

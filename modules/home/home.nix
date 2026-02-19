@@ -78,6 +78,7 @@
             package = pkgs.niri-unstable;
         };
         starship.enable = true;
+        zoxide.enable = true;
     };
 
     services = {

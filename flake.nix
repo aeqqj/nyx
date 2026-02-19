@@ -9,6 +9,16 @@
 
         nixvim.url = "github:nix-community/nixvim";
 
+        aagl = {
+            url = "github:ezKEa/aagl-gtk-on-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        zen-browser = {
+            url = "github:youwen5/zen-browser-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +27,7 @@
 
     outputs =
         inputs@{
+            aagl,
             nixpkgs,
             nix-flatpak,
             home-manager,
@@ -43,6 +54,9 @@
                     ./user/configuration.nix
                     ./modules/nix/nix.nix
                     {
+                        imports = [ aagl.nixosModules.default ];
+                        nix.settings = aagl.nixConfig; # Set up Cachix
+                        programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
                         nixpkgs.overlays = [ inputs.niri.overlays.niri ];
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;

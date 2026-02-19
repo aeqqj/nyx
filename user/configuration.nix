@@ -19,11 +19,13 @@
         description = "main";
         extraGroups = [
             "adbusers"
+            "audio"
             "wheel"
             "networkmanager"
             "docker"
             "seat"
             "kvm"
+            "input"
         ];
 
         openssh.authorizedKeys.keys = [

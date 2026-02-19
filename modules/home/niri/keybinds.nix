@@ -59,7 +59,7 @@
                 "+10%"
             ];
         };
-        XF86MonBrightnessDown = {
+        "XF86MonBrightnessDown" = {
             allow-when-locked = true;
             action.spawn = [
                 "brightnessctl"

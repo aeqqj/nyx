@@ -12,7 +12,6 @@
 
             touchpad = {
                 tap = true;
-                dwt = true;
                 drag = true;
                 natural-scroll = true;
                 accel-profile = "flat";
@@ -29,8 +28,6 @@
                 accel-profile = "flat";
                 accel-speed = 0.6;
             };
-
-            focus-follows-mouse.enable = true;
         };
 
         layout = {

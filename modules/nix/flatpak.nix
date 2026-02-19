@@ -13,8 +13,6 @@
             uninstallUnmanaged = true;
 
             packages = [
-                "com.adamcake.Bolt"
-                "net.waterfox.waterfox"
                 "org.vinegarhq.Sober"
                 "org.azahar_emu.Azahar"
             ];

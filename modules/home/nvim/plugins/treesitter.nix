@@ -27,6 +27,7 @@
                 luadoc
                 markdown
                 nix
+                python
                 tmux
                 tsx
                 typescript
