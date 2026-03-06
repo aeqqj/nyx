@@ -5,8 +5,6 @@
         nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
         nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-        niri.url = "github:sodiboo/niri-flake";
-
         nixvim.url = "github:nix-community/nixvim";
 
         aagl = {

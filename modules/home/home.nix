@@ -7,7 +7,6 @@
 
 {
     imports = [
-        inputs.niri.homeModules.niri
         ./alacritty/alacritty.nix
         ./bash/bash.nix
         ./emacs/emacs.nix
@@ -18,7 +17,7 @@
         ./nvim/nvim.nix
         ./starship/starship.nix
         ./tmux/tmux.nix
-        ./tofi/tofi.nix
+        ./rofi/rofi.nix
         ./user-dirs.nix
         ./waybar/waybar.nix
     ];
@@ -27,14 +26,6 @@
         username = globals.UserName;
         homeDirectory = "/home/${globals.UserName}";
 
-        pointerCursor = {
-            enable = true;
-            gtk.enable = true;
-            package = pkgs.apple-cursor;
-            name = "macOS";
-            size = 16;
-        };
-
         sessionVariables = {
             ELECTRON_ENABLE_WAYLAND = "1";
             ELECTRON_OZONE_PLATFORM_HINT = "wayland";
@@ -42,18 +33,6 @@
             OZONE_PLATFORM = "wayland";
             QT_QPA_PLATFORM = "wayland";
             XDG_SESSION_TYPE = "wayland";
-        };
-
-        packages = with pkgs; [
-            flat-remix-icon-theme
-        ];
-
-    };
-
-    dconf.settings = {
-        "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
-            icon-theme = "Flat-Remix";
         };
     };
 
@@ -64,19 +43,10 @@
         colorScheme = "dark";
     };
 
-    qt = {
-        enable = true;
-        platformTheme.name = "gtk";
-        style.name = "Adwaita-dark";
-    };
-
     programs = {
         alacritty.enable = true;
         bash.enable = true;
-        niri = {
-            enable = true;
-            package = pkgs.niri-unstable;
-        };
+        niri.enable = true;
         starship.enable = true;
         zoxide.enable = true;
     };

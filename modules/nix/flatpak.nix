@@ -14,7 +14,6 @@
 
             packages = [
                 "org.vinegarhq.Sober"
-                "org.azahar_emu.Azahar"
             ];
         };
     };

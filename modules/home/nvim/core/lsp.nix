@@ -41,13 +41,8 @@
                 marksman.enable = true;
                 nixd.enable = true;
                 pyright.enable = true;
-                roslyn.enable = true;
                 tailwindcss.enable = true;
                 ts_ls.enable = true;
-                vtsls = {
-                    enable = true;
-                    autostart = true;
-                };
             };
         };
     };
